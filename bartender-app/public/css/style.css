@@ -107,17 +107,25 @@ h1 {
   margin-bottom: 14px;
 }
 
+/* Order form: stacked layout with clear spacing between input and button */
 .cocktail-card form {
   display: flex;
-  gap: 8px;
+  flex-direction: column;
+  gap: 12px;
+  margin-top: 6px;
 }
 
 .cocktail-card input[type="text"] {
-  flex: 1;
-  padding: 8px 10px;
+  width: 100%;
+  padding: 10px 12px;
   border: 1px solid #d8cfc7;
   border-radius: 6px;
   font-size: 14px;
+}
+
+.cocktail-card .btn-primary {
+  width: 100%;
+  padding: 10px 14px;
 }
 
 /* Buttons */
