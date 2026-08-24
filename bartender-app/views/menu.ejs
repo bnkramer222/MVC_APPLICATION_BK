@@ -6,19 +6,24 @@
   <link rel="stylesheet" href="/css/style.css">
 </head>
 <body>
+  <nav>
+    <a href="/">← Home</a>
+  </nav>
   <h1>Cocktail Menu</h1>
-  <a href="/">← Back to Home</a>
 
-  <% cocktails.forEach(cocktail => { %>
-    <div class="cocktail-card">
-      <h3><%= cocktail.name %> — $<%= cocktail.price.toFixed(2) %></h3>
-      <p><%= cocktail.description %></p>
-      <form action="/order" method="POST">
-        <input type="hidden" name="cocktailId" value="<%= cocktail.id %>">
-        <input type="text" name="patronName" placeholder="Your name" required>
-        <button type="submit">Order This</button>
-      </form>
-    </div>
-  <% }) %>
+  <div class="menu-grid">
+    <% cocktails.forEach(cocktail => { %>
+      <div class="cocktail-card">
+        <h3><%= cocktail.name %></h3>
+        <p class="price">$<%= cocktail.price.toFixed(2) %></p>
+        <p class="description"><%= cocktail.description %></p>
+        <form action="/order" method="POST">
+          <input type="hidden" name="cocktailId" value="<%= cocktail.id %>">
+          <input type="text" name="patronName" placeholder="Your name" required>
+          <button type="submit" class="btn-primary">Order</button>
+        </form>
+      </div>
+    <% }) %>
+  </div>
 </body>
 </html>

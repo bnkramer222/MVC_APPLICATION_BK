@@ -21,4 +21,6 @@ router.get('/order-queue', orderController.showOrderQueue);
 // Bartender: mark order ready
 router.post('/order-queue/:id/ready', orderController.markReady);
 
+router.post('/order-queue/clear', orderController.clearQueue);
+
 module.exports = router;

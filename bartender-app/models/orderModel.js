@@ -21,5 +21,8 @@ function updateOrderStatus(id, status) {
   db.prepare('UPDATE orders SET status = ? WHERE id = ?').run(status, id);
   return getOrderById(id);
 }
+function clearAllOrders() {
+  db.prepare('DELETE FROM orders').run();
+}
 
-module.exports = { createOrder, getAllOrders, getOrderById, updateOrderStatus };
+module.exports = { createOrder, getAllOrders, getOrderById, updateOrderStatus, clearAllOrders };
