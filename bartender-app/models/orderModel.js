@@ -23,6 +23,8 @@ function updateOrderStatus(id, status) {
 }
 function clearAllOrders() {
   db.prepare('DELETE FROM orders').run();
+  // Reset the auto-increment counter so new orders start at 1 again
+  db.prepare("DELETE FROM sqlite_sequence WHERE name = 'orders'").run();
 }
 
 module.exports = { createOrder, getAllOrders, getOrderById, updateOrderStatus, clearAllOrders };
