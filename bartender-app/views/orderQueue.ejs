@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Order Queue</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+  <h1>Bartender Order Queue</h1>
+  <a href="/">← Back to Home</a>
+
+  <table border="1" cellpadding="8">
+    <tr>
+      <th>Order #</th>
+      <th>Cocktail</th>
+      <th>Patron</th>
+      <th>Status</th>
+      <th>Action</th>
+    </tr>
+    <% orders.forEach(order => { %>
+      <tr>
+        <td><%= order.id %></td>
+        <td><%= order.cocktailName %></td>
+        <td><%= order.patronName %></td>
+        <td><%= order.status %></td>
+        <td>
+          <% if (order.status !== 'Ready for Pickup') { %>
+            <form action="/order-queue/<%= order.id %>/ready" method="POST">
+              <button type="submit">Mark Ready</button>
+            </form>
+          <% } else { %>
+            ✅ Ready
+          <% } %>
+        </td>
+      </tr>
+    <% }) %>
+  </table>
+</body>
+</html>
