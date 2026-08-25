@@ -55,4 +55,4 @@ The app runs on port 3000 or the port Codespaces forwards. Visit the forwarded U
 
 ## Author
 
-[Brandon Kramer]] — CIS 4327, Fall 2026
+[Brandon Kramer] — CIS 4327, Fall 2026
